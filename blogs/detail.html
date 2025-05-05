@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>BlogHub</h1>
+        <nav>
+            <a href="/" class="blog-btn">Home</a>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </nav>
+    </header>
+
+    <main class="blog-detail-container">
+        <article id="blog-content">
+            <div class="loading">Loading blog post...</div>
+        </article>
+        
+        <div class="actions" id="action-buttons">
+        </div>
+    </main>
+
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-message"></p>
+            <button id="confirm-action">Confirm</button>
+            <button id="cancel-action">Cancel</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script type="module" src="/js/detail.js"></script>
+</body>
+</html>
