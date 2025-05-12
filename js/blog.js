@@ -60,19 +60,21 @@ function displayBlogs(blogs) {
     }
     
     contentArea.innerHTML = blogs.map(blog => `
-        <div class="card" data-id="${blog.id}">
-            <img src="${blog.imgLink || 'https://via.placeholder.com/300'}" alt="${blog.title}">
-            <h2>${blog.title}</h2>
-            <p>${blog.description.slice(0, 100)}${blog.description.length > 100 ? '...' : ''}</p>
-            <p>By: ${blog.author}</p>
-            <p>Published: ${new Date(blog.publishedAt).toLocaleDateString()}</p>
-            <a href="/blogs/detail.html#${blog.id}">Read More</a> 
-            ${blog.authorId === auth.currentUser?.uid ? `
-                <button class="delete-btn" data-id="${blog.id}">Delete</button>
-                <a href="/blogs/editor.html#${blog.id}" class="edit-btn">Edit</a>
-            ` : ''}
-        </div>
-    `).join('');
+  <div class="card">
+    <img src="${blog.imgLink || 'https://via.placeholder.com/337x200'}" alt="${blog.title}">
+    <h2>${blog.title}</h2>
+    <p>${blog.description.slice(0, 100)}${blog.description.length > 100 ? '...' : ''}</p>
+    <p>By: ${blog.author}</p>
+    <p>Published: ${new Date(blog.publishedAt).toLocaleDateString()}</p>
+    <a href="/blogs/detail.html#${blog.id}">Read More</a>
+    ${blog.authorId === auth.currentUser?.uid ? `
+      <button class="delete-btn" data-id="${blog.id}">Delete</button>
+      <a href="/blogs/editor.html#${blog.id}" class="edit-btn">Edit</a>
+    ` : ''}
+  </div>
+`).join('');
+
+
     
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', (e) => {
